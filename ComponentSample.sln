@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabelTextBoxComponent", "LabelTextBoxComponent\LabelTextBoxComponent.csproj", "{831CE884-ED3E-46BD-92B1-560A25E16CF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComponentsForm", "ComponentsForm\ComponentsForm.csproj", "{BE6076A7-F4C7-4594-8D35-1BA5C20099C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{831CE884-ED3E-46BD-92B1-560A25E16CF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{831CE884-ED3E-46BD-92B1-560A25E16CF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{831CE884-ED3E-46BD-92B1-560A25E16CF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{831CE884-ED3E-46BD-92B1-560A25E16CF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE6076A7-F4C7-4594-8D35-1BA5C20099C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE6076A7-F4C7-4594-8D35-1BA5C20099C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE6076A7-F4C7-4594-8D35-1BA5C20099C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE6076A7-F4C7-4594-8D35-1BA5C20099C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C8A4E03-3167-467A-8AE2-2B73B930C00B}
+	EndGlobalSection
+EndGlobal
