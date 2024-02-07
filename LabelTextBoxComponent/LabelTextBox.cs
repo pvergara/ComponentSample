@@ -39,7 +39,9 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             set
             {
                 _separacion = value;
+
                 Recolocar();
+                OnSeparacionChanged(EventArgs.Empty);
             }
             get => _separacion;
         }
@@ -64,9 +66,20 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             get => textBox1.Text;
         }
 
+        [Category("Design")]
+        [Description("Texto asociado al TextBox del control")]
+        public char PswChr
+        {
+            set => textBox1.PasswordChar = value;
+            get => textBox1.PasswordChar;
+        }
+
+
         [Category("La propiedad cambió")]
         [Description("Se lanza cuando la propiedad Posicion cambia")]
-        public event KeyPressEventHandler Perico;
+        public event KeyPressEventHandler TxtChanged;
+
+        public event EventHandler EventSeparacion;
 
         private void Recolocar()
         {
@@ -74,13 +87,13 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             {
                 label1.Location = new Point(0, 0);
                 textBox1.Location = new Point((int)(label1.Width + Separacion), 0);
-                textBox1.Width = (int)(this.Width - label1.Width - Separacion);
+                this.Width = (int)(this.Width - label1.Width - Separacion);
                 this.Height = Math.Max(textBox1.Height, label1.Height);
             }
             else if (_posicion == EPosicion.DERECHA)
             {
                 textBox1.Location = new Point(0, 0);
-                textBox1.Width = (int)(this.Width - label1.Width - Separacion);
+                this.Width = (int)(this.Width - label1.Width - Separacion);
                 label1.Location = new Point((int)(textBox1.Width + Separacion), 0);
                 this.Height = Math.Max(textBox1.Height, label1.Height);
             }
@@ -103,14 +116,30 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             Recolocar();
         }
 
-        protected virtual void OnPerico(KeyPressEventArgs e)
+        //Necesitare ayuda con los: e), d)
+
+        protected virtual void OnTxtChanged(KeyPressEventArgs e)
         {
-            this.Perico?.Invoke(this, e);
+            this.TxtChanged?.Invoke(this, e);
         }
+
+
+        protected virtual void OnSeparacionChanged(EventArgs e)
+        {
+            this.EventSeparacion?.Invoke(this, e);
+        }
+
+
+
+        private void label1_EventoSeparacion(object sender, EventArgs e)
+        {
+            OnSeparacionChanged(e);
+        }
+
 
         private void textBox1_keyPress(object sender, KeyPressEventArgs e)
         {
-            OnPerico(e);
+            OnTxtChanged(e);
         }
     }
 

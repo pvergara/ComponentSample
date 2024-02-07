@@ -31,29 +31,55 @@ namespace ComponentsForm
         private void InitializeComponent()
         {
             label1 = new LabelTextBox();
+            button1 = new Button();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(31, 38);
-            label1.Margin = new Padding(4, 4, 4, 4);
+            label1.Location = new Point(27, 30);
+            label1.Margin = new Padding(4, 3, 4, 3);
             label1.Name = "label1";
             label1.Posicion = LabelTextBox.EPosicion.DERECHA;
+            label1.PswChr = '\0';
             label1.Separacion = 0U;
-            label1.Size = new Size(523, 26);
+            label1.Size = new Size(38, 23);
             label1.TabIndex = 0;
             label1.TextLbl = "label1";
             label1.TextTxt = "";
-            label1.Perico += label1_Perico_1;
-            label1.KeyPress += label1_KeyPress;
+            label1.TxtChanged += label1_Perico_1;
+            label1.EventSeparacion += label1_EventoSeparacion;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(212, 88);
+            button1.Name = "button1";
+            button1.Size = new Size(162, 23);
+            button1.TabIndex = 1;
+            button1.Text = "Boton Posicion";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // button2
+            // 
+            button2.Location = new Point(212, 156);
+            button2.Name = "button2";
+            button2.Size = new Size(162, 23);
+            button2.TabIndex = 2;
+            button2.Text = "Boton Separacion";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(8F, 19F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 355);
+            Controls.Add(button2);
+            Controls.Add(button1);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -63,5 +89,7 @@ namespace ComponentsForm
         #endregion
 
         private LabelTextBox label1;
+        private Button button1;
+        private Button button2;
     }
 }
