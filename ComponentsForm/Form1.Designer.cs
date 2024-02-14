@@ -1,4 +1,5 @@
 ﻿using Org.Ecos.Logic.Components.LabelTextBox;
+using static Org.Ecos.Logic.Components.LabelTextBox.LabelTextBox;
 
 namespace ComponentsForm
 {
@@ -31,28 +32,44 @@ namespace ComponentsForm
         private void InitializeComponent()
         {
             label1 = new LabelTextBox();
+            etiquetaAviso1 = new EtiquetaAviso();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.LabelUnderlined = true;
             label1.Location = new Point(31, 38);
             label1.Margin = new Padding(4, 4, 4, 4);
             label1.Name = "label1";
-            label1.Posicion = LabelTextBox.EPosicion.DERECHA;
+            label1.Posicion = EPosicion.DERECHA;
             label1.Separacion = 0U;
-            label1.Size = new Size(523, 26);
+            label1.Size = new Size(263, 52);
             label1.TabIndex = 0;
             label1.TextLbl = "label1";
             label1.TextTxt = "";
             label1.Perico += label1_Perico_1;
             label1.KeyPress += label1_KeyPress;
             // 
+            // etiquetaAviso1
+            // 
+            etiquetaAviso1.BeginColor = Color.FromArgb(255, 192, 192);
+            etiquetaAviso1.EndColor = Color.FromArgb(255, 255, 128);
+            etiquetaAviso1.HasGradient = true;
+            etiquetaAviso1.ImagenMarca = null;
+            etiquetaAviso1.Location = new Point(194, 172);
+            etiquetaAviso1.Marca = EtiquetaAviso.EMarca.Imagen;
+            etiquetaAviso1.Name = "etiquetaAviso1";
+            etiquetaAviso1.Size = new Size(90, 20);
+            etiquetaAviso1.TabIndex = 1;
+            etiquetaAviso1.Text = "hola 4342432";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 19F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(etiquetaAviso1);
             Controls.Add(label1);
             Name = "Form1";
             Text = "Form1";
@@ -63,5 +80,6 @@ namespace ComponentsForm
         #endregion
 
         private LabelTextBox label1;
+        private EtiquetaAviso etiquetaAviso1;
     }
 }
