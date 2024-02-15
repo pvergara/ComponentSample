@@ -12,16 +12,35 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             InitializeComponent();
         }
 
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            if (this.LabelUnderlined)
+            {
+                e.Graphics.DrawLine(new Pen(Color.Violet), label1.Left, this.Height - 1, label1.Left + label1.Width,
+                    this.Height - 1);
+            }
+            Recolocar();
+
+        }
+
+        [Category("Appearance")]
+        [Description("Indica si el label aparece o no subrayado")]
+        [RefreshProperties(RefreshProperties.Repaint)]
+        public Boolean LabelUnderlined { get; set; } = false;
+
+        
         private EPosicion _posicion = EPosicion.IZQUIERDA;
         [Category("Appearance")]
         [Description("Indica si la Label se sitúa a la IZQUIERDA o DERECHA delTextbox")]
+        [RefreshProperties(RefreshProperties.Repaint)]
         public EPosicion Posicion {
             set
             {
                 if (Enum.IsDefined(typeof(EPosicion), value))
                 {
                     _posicion = value;
-                    Recolocar();
+                    //Recolocar();
                 }
                 else
                 {
@@ -34,14 +53,13 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
         private uint _separacion;
         [Category("Design")]
         [Description("Píxels de separación entre Label y Textbox")]
+        [RefreshProperties(RefreshProperties.Repaint)]
         public uint Separacion
         {
             set
             {
                 _separacion = value;
-
-                Recolocar();
-                OnSeparacionChanged(EventArgs.Empty);
+                //Recolocar();
             }
             get => _separacion;
         }
@@ -53,7 +71,7 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             set
             {
                 label1.Text = value;
-                Recolocar();
+                //Recolocar();
             }
             get => label1.Text;
         }
@@ -87,13 +105,13 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             {
                 label1.Location = new Point(0, 0);
                 textBox1.Location = new Point((int)(label1.Width + Separacion), 0);
-                this.Width = (int)(this.Width - label1.Width - Separacion);
+                textBox1.Width = 200;
                 this.Height = Math.Max(textBox1.Height, label1.Height);
             }
             else if (_posicion == EPosicion.DERECHA)
             {
                 textBox1.Location = new Point(0, 0);
-                this.Width = (int)(this.Width - label1.Width - Separacion);
+                textBox1.Width = 200;
                 label1.Location = new Point((int)(textBox1.Width + Separacion), 0);
                 this.Height = Math.Max(textBox1.Height, label1.Height);
             }
@@ -113,7 +131,7 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
         protected override void OnSizeChanged(EventArgs e)
         {
             base.OnSizeChanged(e);
-            Recolocar();
+            //Recolocar();
         }
 
         //Necesitare ayuda con los: e), d)

@@ -1,4 +1,5 @@
 ﻿using Org.Ecos.Logic.Components.LabelTextBox;
+using static Org.Ecos.Logic.Components.LabelTextBox.LabelTextBox;
 
 namespace ComponentsForm
 {
@@ -31,20 +32,17 @@ namespace ComponentsForm
         private void InitializeComponent()
         {
             label1 = new LabelTextBox();
-            button1 = new Button();
-            button2 = new Button();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 30);
-            label1.Margin = new Padding(4, 3, 4, 3);
+            label1.Location = new Point(31, 38);
+            label1.Margin = new Padding(4, 4, 4, 4);
             label1.Name = "label1";
             label1.Posicion = LabelTextBox.EPosicion.DERECHA;
-            label1.PswChr = '\0';
             label1.Separacion = 0U;
-            label1.Size = new Size(38, 23);
+            label1.Size = new Size(523, 26);
             label1.TabIndex = 0;
             label1.TextLbl = "label1";
             label1.TextTxt = "";
@@ -71,13 +69,24 @@ namespace ComponentsForm
             button2.UseVisualStyleBackColor = true;
             button2.Click += button2_Click;
             // 
+            // etiquetaAviso1
+            // 
+            etiquetaAviso1.BeginColor = Color.FromArgb(255, 192, 192);
+            etiquetaAviso1.EndColor = Color.FromArgb(255, 255, 128);
+            etiquetaAviso1.HasGradient = true;
+            etiquetaAviso1.ImagenMarca = null;
+            etiquetaAviso1.Location = new Point(194, 172);
+            etiquetaAviso1.Marca = EtiquetaAviso.EMarca.Imagen;
+            etiquetaAviso1.Name = "etiquetaAviso1";
+            etiquetaAviso1.Size = new Size(90, 20);
+            etiquetaAviso1.TabIndex = 1;
+            etiquetaAviso1.Text = "hola 4342432";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(700, 355);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(800, 450);
             Controls.Add(label1);
             Margin = new Padding(3, 2, 3, 2);
             Name = "Form1";
@@ -89,7 +98,5 @@ namespace ComponentsForm
         #endregion
 
         private LabelTextBox label1;
-        private Button button1;
-        private Button button2;
     }
 }
