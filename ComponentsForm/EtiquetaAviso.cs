@@ -3,7 +3,7 @@ using System.Drawing.Drawing2D;
 
 namespace ComponentsForm
 {
-    public class EtiquetaAviso: Control
+    public class EtiquetaAviso : Control  //Subrayado de labeltextbox
     {
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -15,8 +15,8 @@ namespace ComponentsForm
             var offsetY = 0;
             graphics.SmoothingMode = SmoothingMode.AntiAlias;
 
-            if (this.HasGradient){
-                using var linearGradient = new LinearGradientBrush(new Point(0, 0), new Point(width, height),this.BeginColor, this.EndColor);
+            if (this.HasGradient) {
+                using var linearGradient = new LinearGradientBrush(new Point(0, 0), new Point(width, height), this.BeginColor, this.EndColor);
                 e.Graphics.FillRectangle(linearGradient, 0, 0, this.Size.Width, this.Size.Width);
             }
 
@@ -31,12 +31,12 @@ namespace ComponentsForm
                         graphics.DrawLine(pen, height, width, width, height);
                         offsetX = height + width;
                         offsetY = width / 2;
-                    }                    
+                    }
                     break;
                 case EMarca.Circulo:
                     width = 20;
                     pen = new Pen(Color.Green, width);
-                    graphics.DrawEllipse(pen, width, width,height, height);
+                    graphics.DrawEllipse(pen, width, width, height, height);
                     offsetX = height + width;
                     offsetY = width;
                     pen.Dispose();
@@ -59,9 +59,9 @@ namespace ComponentsForm
 
             using var solidBrush = new SolidBrush(this.ForeColor);
 
-            
+
             graphics.DrawString(this.Text, this.Font, solidBrush, offsetX + width, offsetY);
-            
+
             var tam = graphics.MeasureString(this.Text, this.Font).ToSize();
             this.Size = new Size(tam.Width + offsetX + width, tam.Height + offsetY * 2);
 
@@ -138,7 +138,22 @@ namespace ComponentsForm
             }
         }
 
+        public event EventHandler ClickEnMarca;
 
+        private void marcaClick(EventArgs e)
+        {
+            ClickEnMarca?.DynamicInvoke(e);
+            MessageBox.Show("clicked");
+        }
+
+        protected override void OnClick(EventArgs e)
+        {
+            base.OnClick(e);
+            if (MousePosition.X < this.Width)
+            {
+                marcaClick(e); 
+            }
+        }
 
         public enum EMarca
         {

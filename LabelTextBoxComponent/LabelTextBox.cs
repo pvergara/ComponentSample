@@ -84,9 +84,20 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             get => textBox1.Text;
         }
 
+        [Category("Design")]
+        [Description("Texto asociado al TextBox del control")]
+        public char PswChr
+        {
+            set => textBox1.PasswordChar = value;
+            get => textBox1.PasswordChar;
+        }
+
+
         [Category("La propiedad cambió")]
         [Description("Se lanza cuando la propiedad Posicion cambia")]
-        public event KeyPressEventHandler Perico;
+        public event KeyPressEventHandler TxtChanged;
+
+        public event EventHandler EventSeparacion;
 
         private void Recolocar()
         {
@@ -123,14 +134,30 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             //Recolocar();
         }
 
-        protected virtual void OnPerico(KeyPressEventArgs e)
+        //Necesitare ayuda con los: e), d)
+
+        protected virtual void OnTxtChanged(KeyPressEventArgs e)
         {
-            this.Perico?.Invoke(this, e);
+            this.TxtChanged?.Invoke(this, e);
         }
+
+
+        protected virtual void OnSeparacionChanged(EventArgs e)
+        {
+            this.EventSeparacion?.Invoke(this, e);
+        }
+
+
+
+        private void label1_EventoSeparacion(object sender, EventArgs e)
+        {
+            OnSeparacionChanged(e);
+        }
+
 
         private void textBox1_keyPress(object sender, KeyPressEventArgs e)
         {
-            OnPerico(e);
+            OnTxtChanged(e);
         }
     }
 
