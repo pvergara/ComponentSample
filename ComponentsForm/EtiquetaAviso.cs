@@ -140,9 +140,9 @@ namespace ComponentsForm
 
         public event EventHandler ClickEnMarca;
 
-        private void marcaClick(EventArgs e)
+        private void marcaClick(object sender, EventArgs e)
         {
-            ClickEnMarca?.DynamicInvoke(e);
+            ClickEnMarca?.Invoke(sender, e);
             MessageBox.Show("clicked");
         }
 
@@ -151,7 +151,7 @@ namespace ComponentsForm
             base.OnClick(e);
             if (MousePosition.X < this.Width)
             {
-                marcaClick(e); 
+                marcaClick(0, e);
             }
         }
 

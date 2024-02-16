@@ -42,5 +42,10 @@ namespace ComponentsForm
         {
             label1.Separacion += 5;
         }
+
+        private void etiquetaAviso1_ClickEnMarca(object sender, EventArgs e)
+        {
+            MessageBox.Show("HII");
+        }
     }
 }

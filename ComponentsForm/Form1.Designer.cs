@@ -50,7 +50,7 @@ namespace ComponentsForm
             etiquetaAviso1.Size = new Size(665, 133);
             etiquetaAviso1.TabIndex = 1;
             etiquetaAviso1.Text = "Hola que tal estas";
-            etiquetaAviso1.Click += EtiquetaAviso.OnClick;
+            etiquetaAviso1.ClickEnMarca += etiquetaAviso1_ClickEnMarca;
             // 
             // button1
             // 
