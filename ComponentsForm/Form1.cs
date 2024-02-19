@@ -11,9 +11,9 @@ namespace ComponentsForm
             this.label1.Posicion = LabelTextBox.EPosicion.DERECHA;
         }
 
-        private void label1_Perico_1(object sender, KeyPressEventArgs e)
+        private void label1_TextChanged(object sender, EventArgs e)
         {
-            this.Text = "Letra: " + e.KeyChar;
+            this.Text = "Look at this text: " + label1.TextTxt;
 
         }
 
