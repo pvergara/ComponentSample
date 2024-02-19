@@ -15,12 +15,12 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
+            Recolocar();
             if (this.LabelUnderlined)
             {
                 e.Graphics.DrawLine(new Pen(Color.Violet), label1.Left, this.Height - 1, label1.Left + label1.Width,
                     this.Height - 1);
             }
-            Recolocar();
 
         }
 
@@ -134,7 +134,6 @@ namespace Org.Ecos.Logic.Components.LabelTextBox
             //Recolocar();
         }
 
-        //Necesitare ayuda con los: e), d)
 
         protected virtual void OnTxtChanged(KeyPressEventArgs e)
         {
